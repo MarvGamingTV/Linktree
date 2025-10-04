@@ -1,130 +1,161 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MarvGamingTV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarvGamingTV</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --main1: #00b894; /* Cozy Türkis */
-  --main2: #6ee7b7; /* Hellgrün */
-}
+  <style>
+    :root {
+      --main1: #00b894; /* Cozy Türkis */
+      --main2: #6ee7b7; /* Hellgrün */
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
-  background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
-  background-size: 200% 200%;
-  animation: cozyPulse 10s ease-in-out infinite;
-  padding: 20px;
-  color: white;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+      background-size: 200% 200%;
+      animation: cozyPulse 5s ease-in-out infinite;
+      padding: 20px;
+      color: white;
+    }
 
-@keyframes cozyPulse {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+    @keyframes cozyPulse {
+      0%, 100% {
+        background-position: 0% 50%;
+        filter: brightness(1);
+      }
+      50% {
+        background-position: 100% 50%;
+        filter: brightness(1.2);
+      }
+    }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px var(--main2);
-}
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--main2);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
 
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 340px;
-  background: rgba(255,255,255,0.15);
-  padding: 25px;
-  border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+    @keyframes glowPulse {
+      0%, 100% {
+        text-shadow: 0 0 10px var(--main2), 0 0 20px var(--main1);
+      }
+      50% {
+        text-shadow: 0 0 20px var(--main2), 0 0 40px var(--main1);
+      }
+    }
 
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.85);
-  color: var(--main1);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 15px;
-  border-radius: 40px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-  font-size: 1.1rem;
-}
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 340px;
+      background: rgba(255,255,255,0.15);
+      padding: 25px;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
 
-a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.85);
+      color: var(--main1);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 15px;
+      border-radius: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+      font-size: 1.1rem;
+    }
 
-.links a {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: linkFade 0.5s forwards;
-}
+    a:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3), 0 0 12px var(--main1);
+    }
 
-.links a:nth-child(1){animation-delay:0.2s;}
-.links a:nth-child(2){animation-delay:0.4s;}
-.links a:nth-child(3){animation-delay:0.6s;}
-.links a:nth-child(4){animation-delay:0.8s;}
-.links a:nth-child(5){animation-delay:1s;}
-.links a:nth-child(6){animation-delay:1.2s;}
-.links a:nth-child(7){animation-delay:1.4s;}
+    .links a {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: linkFade 0.6s ease-out forwards, floatUp 3s ease-in-out infinite;
+    }
 
-@keyframes linkFade {
-  to { opacity: 1; transform: translateY(0); }
-}
+    .links a:nth-child(1){animation-delay:0.2s;}
+    .links a:nth-child(2){animation-delay:0.4s;}
+    .links a:nth-child(3){animation-delay:0.6s;}
+    .links a:nth-child(4){animation-delay:0.8s;}
+    .links a:nth-child(5){animation-delay:1s;}
+    .links a:nth-child(6){animation-delay:1.2s;}
+    .links a:nth-child(7){animation-delay:1.4s;}
 
-footer {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  padding: 10px;
-}
+    @keyframes linkFade {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95) rotateX(-15deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+      }
+    }
 
-.quote {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #e0f7f1;
-  opacity: 0.85;
-  font-style: italic;
-}
-</style>
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      padding: 10px;
+    }
+
+    .quote {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #e0f7f1;
+      opacity: 0.85;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
-<h1>MarvGamingTV ✨</h1>
 
-<div class="links">
-  <a href="https://www.youtube.com/channel/UCGP6J01U8h1_5bildnezDqg" target="_blank">🎥 MarvGamingTV (Main)</a>
-  <a href="https://www.youtube.com/@MarvStreamingTV" target="_blank">📺 MarvStreamingTV</a>
-  <a href="https://www.youtube.com/@MarvClipsTV" target="_blank">🎬 MarvClipsTV</a>
-  <a href="https://www.instagram.com/marvgamingtv" target="_blank">📸 Instagram</a>
-  <a href="https://www.twitch.tv/marvgamingtv" target="_blank">🟣 Twitch</a>
-  <a href="https://discord.com/invite/kj5nthTuuy" target="_blank">💬 Discord</a>
-  <a href="https://www.youtube.com/@SABBELKÖPPE" target="_blank">🎙 SABBELKÖPPE</a>
-</div>
+  <h1>MarvGamingTV ✨</h1>
 
-<footer>
-  <div class="quote">Fokussier dich nur auf das, was du beeinflussen kannst #DREAMER ✨</div>
-  © 2025 MarvGamingTV | erstellt von Flocke
-</footer>
+  <div class="links">
+    <a href="https://www.youtube.com/channel/UCGP6J01U8h1_5bildnezDqg" target="_blank">🎥 MarvGamingTV (Main)</a>
+    <a href="https://www.youtube.com/@MarvStreamingTV" target="_blank">📺 MarvStreamingTV</a>
+    <a href="https://www.youtube.com/@MarvClipsTV" target="_blank">🎬 MarvClipsTV</a>
+    <a href="https://www.instagram.com/marvgamingtv" target="_blank">📸 Instagram</a>
+    <a href="https://www.twitch.tv/marvgamingtv" target="_blank">🟣 Twitch</a>
+    <a href="https://discord.com/invite/kj5nthTuuy" target="_blank">💬 Discord</a>
+    <a href="https://www.youtube.com/@SABBELKÖPPE" target="_blank">🎙 SABBELKÖPPE</a>
+  </div>
+
+  <footer>
+    <div class="quote">Fokussier dich nur auf das, was du beeinflussen kannst #DREAMER ✨</div>
+    © 2025 MarvGamingTV | erstellt von Flocke
+  </footer>
+
 </body>
 </html>
